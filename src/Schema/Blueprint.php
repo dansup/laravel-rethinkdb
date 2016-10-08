@@ -57,14 +57,14 @@ class Blueprint extends \Illuminate\Database\Schema\Blueprint
     }
 
     /**
-     * Specify an index for the collection.
+     * Specify an index for the table.
      *
-     * @param string $column
-     * @param mixed  $options
-     *
-     * @return Blueprint
+     * @param  string|array  $columns
+     * @param  string  $name
+     * @param  string|null  $algorithm
+     * @return \Illuminate\Support\Fluent
      */
-    public function index($column, $options = null)
+    public function index($column, $name = null, $algorithm = null)
     {
         $conn = $this->connection->getConnection();
         $db = r\db($this->connection->getDatabaseName());
